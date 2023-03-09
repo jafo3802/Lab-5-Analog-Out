@@ -1,0 +1,32 @@
+const int R_LED_PIN = 11;
+const int G_LED_PIN = 10;
+const int B_LED_PIN = 9;
+
+const int xPin = A0;
+const int yPin = A1;
+
+void setup()
+{
+  pinMode(R_LED_PIN, OUTPUT);
+  pinMode(G_LED_PIN, OUTPUT);
+  pinMode(B_LED_PIN, OUTPUT);
+  pinMode(xPin, INPUT);
+  pinMode(yPin, INPUT);
+  randomSeed(3);
+}
+
+void loop()
+{  
+
+  int x = analogRead(xPin);
+  int y = analogRead(yPin);
+
+  int R_Value = map(x, 0, 1023, 0, 255);
+  int B_Value = map(y, 0, 1023, 0, 255);
+  int G_Value = random(0,255);
+
+  analogWrite(R_LED_PIN, R_Value);
+  analogWrite(G_LED_PIN, G_Value);
+  analogWrite(B_LED_PIN, B_Value);
+    
+}
